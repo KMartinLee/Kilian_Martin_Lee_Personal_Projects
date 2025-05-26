@@ -41,6 +41,14 @@ if st.button("Calculate Price"):
     price = black76_model(f, k, t, r, sigma, option)
     st.success(f"Black 76 {option} option price: {price:.4f}")
 
+    
+    st.markdown(r"""
+        
+
+
+
+""")
+
 
     st.markdown("""<br><br>""", unsafe_allow_html=True)
     st.markdown("""<br><br>""", unsafe_allow_html=True)
@@ -92,3 +100,27 @@ if st.button("Calculate Price"):
     plt.title("Delta Sensitivity to Strike Price")
     plt.legend()
     st.pyplot(plt)
+
+    with st.expander("Black76 Model"):
+        st.markdown(r"""
+            <strong>Black 76 Formula:<strong> <br> <br>
+            $\displaystyle Call = e^{-rT} \left[F N(d_1) - K N(d_2)\right]$ <br> <br>
+            $\displaystyle Put = e^{-rT} \left[K N(-d_2) - F N(-d_1)\right]$ <br> <br>""", unsafe_allow_html=True)
+        
+
+        col1, col2 = st.columns([1, 5])  # Adjust ratio as needed
+
+        with col1:
+            st.latex(r"""
+            \begin{array}{rl}
+            \text{with} \quad d_1 &= \frac{\ln(F/K) + (\sigma^2 / 2) T}{\sigma \sqrt{T}} \\
+                d_2 &= \frac{\ln(F/K) - (\sigma^2 / 2) T}{\sigma \sqrt{T}}
+            \end{array} \\
+                    
+            
+            \text{Assumptions:}\\
+            \text{- No arbitrage and frictionless markets}\\
+            \text{- Constant volatility and interest rate}\\
+            \text{- European-style option on futures}\\
+            """)
+    
