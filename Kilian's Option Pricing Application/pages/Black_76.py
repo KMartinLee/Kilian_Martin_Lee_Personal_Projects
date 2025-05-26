@@ -123,4 +123,4 @@ if st.button("Calculate Price"):
             \text{- Constant volatility and interest rate}\\
             \text{- European-style option on futures}\\
             """)
-    wdmkadkwa
+    
