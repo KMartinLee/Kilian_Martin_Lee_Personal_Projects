@@ -105,5 +105,4 @@ st.latex(r'prob(dq=1) = \phi d_t')
 st.markdown(r"""$\phi$ is the jump intensity, representing the average number of jumps per unit time. 
             E.g., if $\phi = 2$ we expect 2 jumps per year (on average).""")
 
-            
 
