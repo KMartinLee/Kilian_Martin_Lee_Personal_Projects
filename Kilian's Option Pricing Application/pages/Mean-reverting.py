@@ -18,4 +18,4 @@ def mean_reverting_call_prices(S, K, T, r, sigma, kappa, theta):
     T : float : Time to maturity
     r : float : Risk-free interest rate"""
 
-    f_t = 
+    
