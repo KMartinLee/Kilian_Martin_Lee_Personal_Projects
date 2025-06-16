@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 from scipy.stats import norm
 
-st.markdown("# Mean-Reverting Model 📙")
+st.markdown("# Mean-Reverting Model ")
 st.sidebar.markdown("### Mean-Reverting (OU)")
 
 def mean_reverting_call_price(S, K, T, r, sigma, kappa, theta):
@@ -21,6 +21,33 @@ sigma = st.number_input("Volatility (σ)", value=0.2)
 kappa = st.number_input("Mean Reversion Speed (κ)", value=1.0)
 theta = st.number_input("Long-term Mean (θ)", value=100.0)
 
+#-------------------------------------------------------------------------------------------
+def numerical_delta(price_func, S, *args, h=1e-4):
+    """Numerical approximation of Delta"""
+    return (price_func(S + h, *args) - price_func(S - h, *args)) / (2 * h)
+
+def numerical_vega(price_func, S, sigma, *args, h=1e-4):
+    """Numerical approximation of Vega"""
+    args_with_sigma_up = (S, sigma + h) + args
+    args_with_sigma_down = (S, sigma - h) + args
+    return (price_func(*args_with_sigma_up) - price_func(*args_with_sigma_down)) / (2 * h)
+#--------------------------------------------------------------------------------------------
+def delta_mean_reverting(S, sigma, K, T, r, kappa, theta):
+    return numerical_delta(mean_reverting_call_price, S, K, T, r, sigma, kappa, theta)
+
+def vega_mean_reverting(S, sigma, K, T, r, kappa, theta):
+    return numerical_vega(mean_reverting_call_price, S, sigma, K, T, r, kappa, theta)
+#--------------------------------------------------------------------------------------------
+
+
+
+
+
+
 if st.button("Calculate Price"):
     price = mean_reverting_call_price(S, K, T, r, sigma, kappa, theta)
     st.success(f"Mean-Reverting Approx. Call Price: {price:.4f}")
+    
+    st.markdown(f"**Delta (numerical):** {delta_mean_reverting(S, sigma, K, T, r, kappa, theta):.4f}")
+    st.markdown(f"**Vega (numerical):** {vega_mean_reverting(S, sigma, K, T, r, kappa, theta):.4f}")
+

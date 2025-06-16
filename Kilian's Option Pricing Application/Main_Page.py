@@ -16,6 +16,14 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 from io import StringIO
 from PIL import Image
 
+# sidebar_utils.py
+import streamlit as st
+
+def add_linkedin_sidebar():
+    st.sidebar.markdown("## 📇 Connect")
+    st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
+
+
 # --- Page Configuration ---
 st.set_page_config(page_title="Commodity Option Pricing", layout="wide")
 st.sidebar.markdown("## Main Page ")

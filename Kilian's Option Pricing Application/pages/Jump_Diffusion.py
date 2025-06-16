@@ -2,8 +2,10 @@
 import streamlit as st
 import numpy as np
 from scipy.stats import norm
+import math
 
-st.markdown("# Jump Diffusion Model 💥")
+
+st.markdown("# Jump Diffusion Model ")
 st.sidebar.markdown("### Jump Diffusion")
 
 def black76(f, k, t, r, sigma, option_type='call'):
@@ -19,7 +21,7 @@ def jump_diffusion_price(S, K, T, r, sigma, lamb, mu_j, sigma_j, option_type='ca
     for k in range(n_terms):
         sigma_k = np.sqrt(sigma**2 + (k * sigma_j**2) / T)
         r_k = r - lamb * (mu_j - 1) + (k * np.log(mu_j)) / T
-        poisson_prob = np.exp(-lamb * T) * (lamb * T)**k / np.math.factorial(k)
+        poisson_prob = np.exp(-lamb * T) * (lamb * T)**k / math.factorial(k)
         bs_price = black76(S, K, T, r_k, sigma_k, option_type)
         price += poisson_prob * bs_price
     return price
@@ -34,6 +36,39 @@ mu_j = st.number_input("Jump Mean Size (μ_j)", value=1.0)
 sigma_j = st.number_input("Jump Volatility (σ_j)", value=0.3)
 opt_type = st.selectbox("Option Type", ["call", "put"])
 
+
+#-------------------------------------------------------------------------------------------
+def numerical_delta(price_func, S, *args, h=1e-4):
+    """Numerical approximation of Delta"""
+    return (price_func(S + h, *args) - price_func(S - h, *args)) / (2 * h)
+
+def numerical_vega(price_func, S, sigma, *args, h=1e-4):
+    """Numerical approximation of Vega"""
+    args_with_sigma_up = (S, sigma + h) + args
+    args_with_sigma_down = (S, sigma - h) + args
+    return (price_func(*args_with_sigma_up) - price_func(*args_with_sigma_down)) / (2 * h)
+#--------------------------------------------------------------------------------------------
+def delta_jump(S, sigma, K, T, r, lamb, mu_j, sigma_j, option_type='call'):
+    return numerical_delta(jump_diffusion_price, S, K, T, r, sigma, lamb, mu_j, sigma_j, option_type)
+
+def vega_jump(S, sigma, K, T, r, lamb, mu_j, sigma_j, option_type='call'):
+    return numerical_vega(jump_diffusion_price, S, sigma, K, T, r, lamb, mu_j, sigma_j, option_type)
+#--------------------------------------------------------------------------------------------
+
+
 if st.button("Calculate Price"):
     price = jump_diffusion_price(S, K, T, r, sigma, lamb, mu_j, sigma_j, opt_type)
     st.success(f"Jump Diffusion {opt_type} price: {price:.4f}")
+    st.markdown(f"**Delta (numerical):** {delta_jump(S, sigma, K, T, r, lamb, mu_j, sigma_j, opt_type):.4f}")
+    st.markdown(f"**Vega (numerical):** {vega_jump(S, sigma, K, T, r, lamb, mu_j, sigma_j, opt_type):.4f}")
+
+
+
+
+
+
+
+
+
+
+

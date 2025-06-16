@@ -4,6 +4,10 @@ from scipy.stats import norm
 import matplotlib as plt
 import matplotlib.pyplot as plt
 
+from sidebar_utils import add_linkedin_sidebar
+add_linkedin_sidebar()
+
+
 st.sidebar.markdown("### Black-76 Model")
 
 
