@@ -4,13 +4,12 @@ from scipy.stats import norm
 import matplotlib as plt
 import matplotlib.pyplot as plt
 
-from sidebar_utils import add_linkedin_sidebar
-add_linkedin_sidebar()
+
 
 
 st.sidebar.markdown("### Black-76 Model")
-
-
+st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
+st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 
 def black76_model(f, k, t, r, sigma, option = "call"):
 

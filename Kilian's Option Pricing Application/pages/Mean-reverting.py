@@ -4,7 +4,9 @@ import numpy as np
 from scipy.stats import norm
 
 st.markdown("# Mean-Reverting Model ")
-st.sidebar.markdown("### Mean-Reverting (OU)")
+st.sidebar.markdown("### Mean-Reverting (Ornstein-Uhlenbeck)")
+st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
+st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 
 def mean_reverting_call_price(S, K, T, r, sigma, kappa, theta):
     f_t = theta + (S - theta) * np.exp(-kappa * T)

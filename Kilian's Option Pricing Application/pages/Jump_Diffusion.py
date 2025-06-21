@@ -7,6 +7,8 @@ import math
 
 st.markdown("# Jump Diffusion Model ")
 st.sidebar.markdown("### Jump Diffusion")
+st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
+st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 
 def black76(f, k, t, r, sigma, option_type='call'):
     d1 = (np.log(f / k) + 0.5 * sigma**2 * t) / (sigma * np.sqrt(t))
