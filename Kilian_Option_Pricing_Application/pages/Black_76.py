@@ -4,7 +4,22 @@ from scipy.stats import norm
 import matplotlib as plt
 import matplotlib.pyplot as plt
 
+from utils.Black_76_utils import (
+    plot_price_vs_strike,
+    plot_price_vs_time,
+    plot_delta_vs_strike,
+    render_latex_greek_explanations
+)
 
+#from utils.Black_76_utils import (
+#    black76_delta,
+#    black76_gamma,
+#    black76_vega,
+#    black76_theta,
+#    black76_rho,
+#    black76_Vanna,
+#    black76_volga
+#)'''
 
 
 st.sidebar.markdown("### Black-76 Model")
@@ -67,6 +82,7 @@ def black76_volga(f, k, t, r, sigma, option = "call"):
 
 
 
+
 st.markdown(r"""
             Black-76 Model
             """)
@@ -103,6 +119,20 @@ sigma = st.number_input("Volatility", min_value=0.0, max_value=1.0, step=0.01, v
 option = st.selectbox("Option Type", ["call", "put"])
 
 
+if st.button("Calculate Price"):
+    price = black76_model(f, k, t, r, sigma, option)
+    st.success(f"Black 76 {option} option price: {price:.4f}")
+
+    # Greeks & LaTeX
+    render_latex_greek_explanations()
+    
+    # Plots
+    plot_price_vs_strike(f, k, t, r, sigma, option)
+    plot_price_vs_time(f, k, r, sigma, option)
+    plot_delta_vs_strike(f, k, t, r, sigma, option)
+
+
+'''
 if st.button("Calculate Price"):
     price = black76_model(f, k, t, r, sigma, option)
     st.success(f"Black 76 {option} option price: {price:.4f}")
@@ -245,7 +275,7 @@ if st.button("Calculate Price"):
     plt.title("Delta Sensitivity to Strike Price")
     plt.legend()
     st.pyplot(plt)
-
+'''
     
     
 

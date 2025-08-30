@@ -29,6 +29,7 @@ st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-l
 st.title("Commodity Option Pricing Models")
 st.markdown("""
             <br>
+            
             Welcome to the commodity option pricing tool.
 
             You can use the side bar located on the left to choose the model adapted for your analysis. (More models are about to come soon)
