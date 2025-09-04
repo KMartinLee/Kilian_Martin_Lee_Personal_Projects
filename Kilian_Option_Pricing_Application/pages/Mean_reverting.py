@@ -14,7 +14,7 @@ from scipy.stats import norm
 
 st.markdown("# Mean-Reverting Model ")
 st.sidebar.markdown("### Mean-Reverting (Ornstein-Uhlenbeck)")
-st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
 
 # --- LinkedIn Footer ---
 st.sidebar.markdown("---")
