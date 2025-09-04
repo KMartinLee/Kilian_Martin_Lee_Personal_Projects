@@ -1,6 +1,7 @@
 [theme]
-primaryColor="#4B8BBE"
-backgroundColor="#F7F7F7"
-secondaryBackgroundColor="#E0E0E0"
-textColor="#262730"
-font="sans serif"
+primaryColor = "#00BFFF"              # A bright, professional cyan-blue
+backgroundColor = "#121212"           # Almost black (dark mode)
+secondaryBackgroundColor = "#1E1E1E"  # Slightly lighter for sidebar and widgets
+textColor = "#EAEAEA"                 # Light gray for readability
+font = "sans serif"
+
