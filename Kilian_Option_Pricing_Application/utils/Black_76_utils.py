@@ -2,7 +2,7 @@ import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 from scipy.stats import norm
-from pages.Black_76 import black76_model, black76_delta  # import other greeks as needed
+from utils.Black_76_core import black76_model, black76_delta  # import other greeks as needed
 
 # --- Plot 1: Option Price vs Strike Price ---
 def plot_price_vs_strike(f, k, t, r, sigma, option):

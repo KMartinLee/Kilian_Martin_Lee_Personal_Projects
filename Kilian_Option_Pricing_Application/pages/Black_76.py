@@ -10,6 +10,10 @@ from utils.Black_76_utils import (
     plot_delta_vs_strike,
     render_latex_greek_explanations
 )
+from utils.Black_76_core import (
+    black76_model,
+    black76_delta,
+)
 
 #from utils.Black_76_utils import (
 #    black76_delta,
@@ -26,6 +30,7 @@ st.sidebar.markdown("### Black-76 Model")
 st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 
+'''
 def black76_model(f, k, t, r, sigma, option = "call"):
 
     d1 = (np.log(f / k) + (1/2) * sigma**2 * t) / (sigma * np.sqrt(t))
@@ -80,7 +85,7 @@ def black76_volga(f, k, t, r, sigma, option = "call"):
     vega = black76_vega(f, k, t, r, sigma, option = "call")
     return vega * (d1 * d2) / sigma
 
-
+'''
 
 
 st.markdown(r"""
