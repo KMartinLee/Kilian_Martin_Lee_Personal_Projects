@@ -72,7 +72,7 @@ if st.button("Calculate Price"):
     st.success(f"Black 76 {option} option price: {price:.4f}")
 
     # Greeks & LaTeX
-    render_latex_greek_explanations()
+    render_latex_greek_explanations(f, k, t, r, sigma, option)
     
     # Plots
     plot_price_vs_strike(f, k, t, r, sigma, option)
