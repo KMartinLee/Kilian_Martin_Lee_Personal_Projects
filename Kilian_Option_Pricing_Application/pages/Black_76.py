@@ -27,7 +27,11 @@ from utils.Black_76_core import (
 
 
 st.sidebar.markdown("### Black-76 Model")
-st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
+st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+
+# --- LinkedIn Footer ---
+st.sidebar.markdown("---")
+st.sidebar.markdown("#### Kilian Martin Lee's LinkedIn")
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 
 
@@ -78,5 +82,7 @@ if st.button("Calculate Price"):
     plot_price_vs_strike(f, k, t, r, sigma, option)
     plot_price_vs_time(f, k, r, sigma, option)
     plot_delta_vs_strike(f, k, t, r, sigma, option)
+
+
 
 
