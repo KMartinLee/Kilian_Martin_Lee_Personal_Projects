@@ -24,7 +24,11 @@ from PIL import Image
 st.set_page_config(page_title="Commodity Option Pricing", layout="wide")
 
 st.sidebar.markdown("## Main Page ")
-st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
+st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+
+# --- LinkedIn Footer ---
+st.sidebar.markdown("---")
+st.sidebar.markdown("#### Kilian Martin Lee's LinkedIn")
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 st.title("Commodity Option Pricing Models")
 st.markdown("""

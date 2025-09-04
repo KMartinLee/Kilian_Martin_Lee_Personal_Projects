@@ -14,7 +14,11 @@ from scipy.stats import norm
 
 st.markdown("# Mean-Reverting Model ")
 st.sidebar.markdown("### Mean-Reverting (Ornstein-Uhlenbeck)")
-st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
+st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+
+# --- LinkedIn Footer ---
+st.sidebar.markdown("---")
+st.sidebar.markdown("#### Kilian Martin Lee's LinkedIn")
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 
 def mean_reverting_call_price(S, K, T, r, sigma, kappa, theta):

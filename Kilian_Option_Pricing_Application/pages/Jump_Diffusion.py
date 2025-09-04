@@ -16,7 +16,11 @@ import math
 
 st.markdown("# Jump Diffusion Model ")
 st.sidebar.markdown("### Jump Diffusion")
-st.sidebar.markdown("## Kilian Martin Lee's Linkedin")
+st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+
+# --- LinkedIn Footer ---
+st.sidebar.markdown("---")
+st.sidebar.markdown("#### Kilian Martin Lee's LinkedIn")
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/kilian-martin-lee-0093a6256/)")
 
 def black76(f, k, t, r, sigma, option_type='call'):
