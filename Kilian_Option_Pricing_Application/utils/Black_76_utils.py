@@ -57,6 +57,8 @@ def plot_delta_vs_strike(f, k, t, r, sigma, option):
     st.pyplot(plt)
 
 
+
+# --- Render LaTeX Explanations for Greeks ---
 def render_latex_greek_explanations(f, k, t, r, sigma, option):
     st.markdown("### Greeks Summary")
 
