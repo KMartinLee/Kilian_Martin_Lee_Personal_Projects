@@ -10,6 +10,7 @@ from utils.Black_76_utils import (
     plot_delta_vs_strike,
     render_latex_greek_explanations
 )
+
 from utils.Black_76_core import (
     black76_model,
     black76_delta,
@@ -82,7 +83,3 @@ if st.button("Calculate Price"):
     plot_price_vs_strike(f, k, t, r, sigma, option)
     plot_price_vs_time(f, k, r, sigma, option)
     plot_delta_vs_strike(f, k, t, r, sigma, option)
-
-
-
-
